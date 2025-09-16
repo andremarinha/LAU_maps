@@ -8,7 +8,7 @@ permalink: /
 
 This site hosts country-level interactive maps for Portugal, Spain, Italy, and Greece that classify each municipality (LAU) by:
 - <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/degree-urbanisation"><strong>Degree of Urbanisation (DEGURBA)</strong></a> (urban–rural)
-- <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/geographic-accessibility"><strong>Service accessibility</strong> (hospitals and primary schools)
+- <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/geographic-accessibility"><strong>Service accessibility</strong></a> (hospitals and primary schools)
 - <strong>Status</strong> (a summary of centrality and services)
 
 Further info on methodological details and limitations can be found below.
