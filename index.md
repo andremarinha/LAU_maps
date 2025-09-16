@@ -15,7 +15,7 @@ Further info on methodological details and limitations can be found below.
 
 ## Interactive maps
 - **Greece** — [Open map]({{ '/maps/GR_status.html' | relative_url }})
-- **Italy** — [Open map]({{ '/maps/it_status.html' | relative_url }})
+- **Italy** — [Open map]({{ '/maps/IT_status.html' | relative_url }})
 - **Portugal** — [Open map]({{ '/maps/PT_status.html' | relative_url }})
 - **Spain** — [Open map]({{ '/maps/ES_status.html' | relative_url }})
 
