@@ -22,8 +22,6 @@ Further info on methodological details and limitations can be found below.
 ## Methodological Notes
 
 <details open>
-  <summary><strong>Data Collection</strong></summary>
-  <p>All source material is public and harmonised: Eurostat/GISCO LAU 2021 boundaries, Eurostat DEGURBA at LAU (2021), the EU 1-km population grid from the 2021 census, GISCO’s 2023 accessibility-to-services indicators for hospitals and primary schools, and the EU-OECD 2021 FUA layer.</p>
   <summary><strong>Datasets</strong></summary>
   <ul>
   <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/lau-2021.html"><strong>LAU boundaries (2021): LAU_RG_01M_2021_3035.gpkg (ETRS89-LAEA)</strong></a></li>
