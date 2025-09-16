@@ -26,9 +26,9 @@ Further info on methodological details and limitations can be found below.
   <ul>
   <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/lau-2021.html"><strong>LAU boundaries (2021): LAU_RG_01M_2021_3035.gpkg (ETRS89-LAEA)</strong></a></li>
   <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/degree-urbanisation"><strong>DEGURBA at LAU (2021)</strong></a></li>
-  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/population-grids"><strong>EU Census 1-km grid (2021)</strong></li>
-  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/geographic-accessibility"><strong>Accessibility to services (2023)</strong></li>
-  <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/urau-2021.html"><strong>Functional Urban Areas (2021)</strong></li>
+  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/population-grids"><strong>EU Census 1-km grid (2021)</strong></a></li>
+  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/geographic-accessibility"><strong>Accessibility to services (2023)</strong></a></li>
+  <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/urau-2021.html"><strong>Functional Urban Areas (2021)</strong></a></li>
   </ul>
 </details>
 
@@ -46,7 +46,7 @@ Data on <strong>population</strong> comes from the 2021 EU 1-km census grid (lay
 
 <details>
   <summary><strong>Data Visualization</strong></summary>
-  <p>For the web maps I simplify geometries in ETRS89-LAEA and export them to WGS84 for Leaflet. The interactive views are built with Folium on top of CartoDB Positron tiles and expose the key fields in tooltips, including the underlying travel times and population used in the aggregation. Static figures for print are generated separately and use national north-up projections for readability.  </p>
+  <p>For the web maps I simplify geometries in ETRS89-LAEA and export them to WGS84 for Leaflet. The interactive views are built with Folium on top of CartoDB Positron tiles and expose the key fields in tooltips, including the underlying travel times and population used in the aggregation. Static figures for print are generated separately and use national north-up projections for readability.</p>
 </details>
 
 <details>
