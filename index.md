@@ -6,17 +6,47 @@ permalink: /
 
 # LAU Maps
 
-This site hosts country-level interactive maps of LAUs in Greece, Italy, Portugal, and Spain as a transparent companion to my PhD thesis.
+This site hosts country-level interactive maps for Portugal, Spain, Italy, and Greece that classify each municipality (LAU) by:
+- DEGURBA (urban–rural),
+- Services accessibility (hospitals + primary schools),
+- Status (a summary of centrality × services).
 
 Further info on methodological details and limitations can be found below.
 
 ## Interactive maps
-- **Greece** — [Open map]({{ '/maps/greece_postoffices_map.html' | relative_url }})
-- **Italy** — [Open map]({{ '/maps/italy_postoffices_map.html' | relative_url }})
-- **Portugal** — [Open map]({{ '/maps/portugal_postoffices_map.html' | relative_url }})
-- **Spain** — [Open map]({{ '/maps/spain_postoffices_map.html' | relative_url }})
+
+Greece
+- Status — [Open map]({{ '/maps/interactive/el_status.html' | relative_url }})
+- DEGURBA — [Open map]({{ '/maps/interactive/el_degurba_label.html' | relative_url }})
+- Services — [Open map]({{ '/maps/interactive/el_services.html' | relative_url }})
+
+Italy
+- Status — [Open map]({{ '/maps/interactive/it_status.html' | relative_url }})
+- DEGURBA — [Open map]({{ '/maps/interactive/it_degurba_label.html' | relative_url }})
+- Services — [Open map]({{ '/maps/interactive/it_services.html' | relative_url }})
+
+Portugal
+- Status — [Open map]({{ '/maps/interactive/pt_status.html' | relative_url }})
+- DEGURBA — [Open map]({{ '/maps/interactive/pt_degurba_label.html' | relative_url }})
+- Services — [Open map]({{ '/maps/interactive/pt_services.html' | relative_url }})
+
+Spain
+- Status — [Open map]({{ '/maps/interactive/es_status.html' | relative_url }})
+- DEGURBA — [Open map]({{ '/maps/interactive/es_degurba_label.html' | relative_url }})
+- Services — [Open map]({{ '/maps/interactive/es_services.html' | relative_url }})
 
 ## Methodological Notes
+
+<details>
+<summary><strong>Datasets</strong></summary>
+<ul>
+  <li><strong>LAU boundaries (2021): LAU_RG_01M_2021_3035.gpkg (ETRS89-LAEA)</strong> <!-- Add source + URL --></li>
+  <li><strong>DEGURBA at LAU (2021)</strong> <!-- Add source + URL --></li>
+  <li><strong>EU Census 1-km grid (2021)</strong> <!-- Add source + URL --></li>
+  <li><strong>Accessibility to services (2023)</strong> <!-- Add source + URL --></li>
+  <li><strong>Functional Urban Areas (2021)</strong> <!-- Add source + URL --></li>
+</ul>
+</details>
 
 <details>
   <summary><strong>Data Collection</strong></summary>
@@ -25,17 +55,24 @@ Further info on methodological details and limitations can be found below.
 
 <details>
   <summary><strong>Data Wrangling and Processing</strong></summary>
-  <p>The raw OSM data contained three types of geometries: points (nodes), polygons (ways), and multipolygons (relations). To create a consistent point-based dataset, all features were converted to single centroid coordinates (using the out center directive in Overpass for non-point geometries). The resulting dataset included geographic coordinates, OSM IDs, and available metadata such as postal codes, operators, or opening hours. These data were saved in both <strong>GeoJSON</strong> and <strong>GeoPackage</strong> formats for transparency and reusability. For visualization, geometries were projected to EPSG:3857 (Web Mercator), the standard for web mapping, while storage and analysis were conducted in EPSG:4326 (WGS84). Data cleaning steps involved checking for duplicates, validating coordinate ranges, and discarding features without spatial information. A light quality assurance step was also performed by comparing point density in selected urban and rural areas with known post office distributions, confirming broad consistency.</p>
+  <p>The workflow is deliberately simple and EU-standard. I have started from Eurostat/GISCO’s 2021 LAU boundary file in ETRS89-LAEA and added the 2021 DEGURBA labels that classify each municipality as “Cities”, “Towns & suburbs”, or “Rural areas”. Since countries format LAU codes differently, I have normalised IDs by left-padding to each country’s modal length (Portugal and Italy: six characters; Spain: five; Greece: eight) before adding/merging them. 
+
+Data on <strong>population</strong> comes from the 2021 EU 1-km census grid (layer <code>census2021</code>, using the total residents field) and is used to weight all accessibility calculations. Populated cells were assigned to municipalities with a centroid-within rule, which is fast and robust for large-area processing.
+
+<strong>Service access</strong> was built from GISCO’s 2023 1-km travel-time indicators. For both hospitals and primary schools, I took the population-weighted average minutes to the three nearest providers (falling back to the nearest when needed). I then sum those two times into a single “access burden” and classify municipalities within each country: the best quarter are “Service-rich”, the worst quarter are “Service-poor”, and the remainder are “Average”. To avoid flattering outliers, there is a hard override: any municipality where more than one fifth of residents are over 30 minutes from a hospital or over 15 minutes from a primary school is marked Service-poor regardless of its quartile.
+
+<strong>Centrality</strong> is anchored on the 2021 EU-OECD Functional Urban Areas. Municipalities whose centroids fall inside an FUA are split into “Core” if their DEGURBA label is Cities, otherwise “Commuting zone”. Municipalities outside any FUA are placed into distance bands based on how far their centroid lies from the nearest FUA boundary—“Near-FUA” within 30 km, “Intermediate” at 30–60 km, “Peripheral” at 60–120 km, and “Remote” beyond 120 km. The overall “status” combines these two dimensions in a way that matches the narrative I use in the thesis: “More central” if a municipality is in core/commuting/near-FUA and is not service-poor; “Left behind” if it is intermediate/peripheral/remote and is service-poor; “In-between” otherwise.
+</p>
 </details>
 
 <details>
   <summary><strong>Data Visualization</strong></summary>
-  <p>In the context of this (small) project, two forms of data visualization were produced. First, the interactive web maps that can be consulted above were created using <strong>Folium</strong>, which leverages Leaflet.js and CartoDB Positron basemaps. These maps allow exploration of individual features through marker popups and were used for inspection and qualitative assessment. Second, high-resolution static maps were generated with GeoPandas, Matplotlib, and Contextily. These outputs were specifically tailored for further inclusion in the body of dissertation, with markers being rendered at a uniform small size to highlight density and distribution, while basemaps were included at moderate zoom levels to provide geographic context.</p>
+  <p>For the web maps I simplify geometries in ETRS89-LAEA and export them to WGS84 for Leaflet. The interactive views are built with Folium on top of CartoDB Positron tiles and expose the key fields in tooltips, including the underlying travel times and population used in the aggregation. Static figures for print are generated separately and use national north-up projections for readability.  </p>
 </details>
 
 <details>
   <summary><strong>Limitations</strong></summary>
-  <p>Taking the OSM route/approach has several inherent limitations that need to be considered. First, OSM is <strong>crowdsourced</strong>, which means coverage may not be uniform — metropolitan areas tend to be well mapped, while rural areas may contain gaps or outdated entries. Second, the reliance on the <code>amenity=post_office</code> tag can produce discrepancies when compared with official registries. For example, in Portugal, OSM identified <strong>985 post offices</strong>, whereas a manual coding exercise based on the official <a href="https://tinyurl.com/36f7v6jz">CTT website</a> yielded only <strong>564 branches</strong>. Part of this divergence likely arises from the inclusion in OSM of <strong>“pontos CTT”</strong> (partner outlets hosted in shops or other businesses), which provide limited services (i.e., mainly the sending and receiving of letters and parcels) rather than the full suite of services available in official <strong>“balcões”</strong> (CTT branches). Third, the dataset reflects OSM at the date of collection and does not capture subsequent openings, closures, or relocations. Finally, although national operators (Correos, Poste Italiane, CTT Portugal, Hellenic Post) maintain their own lists, these are not always openly accessible in harmonized formats. Despite these caveats, OSM offers a consistent, transparent, and reproducible dataset across multiple countries, making it suitable for comparative geographic analysis, provided the results are interpreted with these differences in mind.</p>
+  <p>There are limits worth keeping in mind. Spatial units are fixed at 2021, while the accessibility layer is from 2023, so any subsequent changes are not captured. Centroid assignments — both when (i) attaching grid cells to municipalities and when (ii) identifying municipality–FUA membership —can produce minor edge effects on borders and small islands (though they seem to behave well at national scale). The travel-time indicators are model-based and reflect the network and assumptions at the time of release - one needs to consider, then, that local realities may differ. Finally, the services classification is intentionally country-relative, so that the resulting bands are comparable across countries with different baseline access.</p>
 </details>
 
 ## Sources
@@ -45,15 +82,7 @@ Further info on methodological details and limitations can be found below.
 <p>© OpenStreetMap contributors (see <a href="https://www.openstreetmap.org/copyright">copyright &amp; attribution</a>).</p>
 </details>
 
-<details>
-<summary><strong>Country datasets</strong></summary>
-<ul>
-  <li><strong>Portugal:</strong> <!-- Add source + URL --></li>
-  <li><strong>Spain:</strong> <!-- Add source + URL --></li>
-  <li><strong>Italy:</strong> <!-- Add source + URL --></li>
-  <li><strong>Greece:</strong> <!-- Add source + URL --></li>
-</ul>
-</details>
+
 
 ## How to cite
 
