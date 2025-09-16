@@ -14,26 +14,10 @@ This site hosts country-level interactive maps for Portugal, Spain, Italy, and G
 Further info on methodological details and limitations can be found below.
 
 ## Interactive maps
-
-Greece
-- Status — [Open map]({{ '/maps/interactive/el_status.html' | relative_url }})
-- DEGURBA — [Open map]({{ '/maps/interactive/el_degurba_label.html' | relative_url }})
-- Services — [Open map]({{ '/maps/interactive/el_services.html' | relative_url }})
-
-Italy
-- Status — [Open map]({{ '/maps/interactive/it_status.html' | relative_url }})
-- DEGURBA — [Open map]({{ '/maps/interactive/it_degurba_label.html' | relative_url }})
-- Services — [Open map]({{ '/maps/interactive/it_services.html' | relative_url }})
-
-Portugal
-- Status — [Open map]({{ '/maps/interactive/pt_status.html' | relative_url }})
-- DEGURBA — [Open map]({{ '/maps/interactive/pt_degurba_label.html' | relative_url }})
-- Services — [Open map]({{ '/maps/interactive/pt_services.html' | relative_url }})
-
-Spain
-- Status — [Open map]({{ '/maps/interactive/es_status.html' | relative_url }})
-- DEGURBA — [Open map]({{ '/maps/interactive/es_degurba_label.html' | relative_url }})
-- Services — [Open map]({{ '/maps/interactive/es_services.html' | relative_url }})
+- **Greece** — [Open map]({{ '/maps/GR_status.html' | relative_url }})
+- **Italy** — [Open map]({{ '/maps/it_status.html' | relative_url }})
+- **Portugal** — [Open map]({{ '/maps/PT_status.html' | relative_url }})
+- **Spain** — [Open map]({{ '/maps/ES_status.html' | relative_url }})
 
 ## Methodological Notes
 
@@ -42,8 +26,8 @@ Spain
   <p>All source material is public and harmonised: Eurostat/GISCO LAU 2021 boundaries, Eurostat DEGURBA at LAU (2021), the EU 1-km population grid from the 2021 census, GISCO’s 2023 accessibility-to-services indicators for hospitals and primary schools, and the EU-OECD 2021 FUA layer.</p>
   <summary><strong>Datasets</strong></summary>
   <ul>
-  <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/lau-2021.html"><strong>LAU boundaries (2021): LAU_RG_01M_2021_3035.gpkg (ETRS89-LAEA)</strong></a>!</li>
-  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/degree-urbanisation"><strong>DEGURBA at LAU (2021)</strong></a>!</li>
+  <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/lau-2021.html"><strong>LAU boundaries (2021): LAU_RG_01M_2021_3035.gpkg (ETRS89-LAEA)</strong></a></li>
+  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/degree-urbanisation"><strong>DEGURBA at LAU (2021)</strong></a></li>
   <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/population-grids"><strong>EU Census 1-km grid (2021)</strong></li>
   <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/geographic-accessibility"><strong>Accessibility to services (2023)</strong></li>
   <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/urau-2021.html"><strong>Functional Urban Areas (2021)</strong></li>
@@ -78,7 +62,7 @@ Data on <strong>population</strong> comes from the 2021 EU 1-km census grid (lay
 <summary><strong>Materials</strong></summary>
 <p>All source material is public and harmonised: Eurostat/GISCO LAU 2021 boundaries, Eurostat DEGURBA at LAU (2021), the EU 1-km population grid from the 2021 census, GISCO’s 2023 accessibility-to-services indicators for hospitals and primary schools, and the EU-OECD 2021 FUA layer.</p>
 <summary><strong>Software</strong></summary>
-<p>Python with <code>GeoPandas</code>, <code>Pyogrio</code>, <code>Shapely</code>, <code>Pandas</code>, <code>Folium</code> and <code>Matplotlib</code>.</p>
+<p>Python (Libraries: <code>GeoPandas</code>, <code>Pyogrio</code>, <code>Shapely</code>, <code>Pandas</code>, <code>Folium</code> and <code>Matplotlib</code>)</p>
 </details>
 
 <small>Last updated: {{ 'now' | date: '%Y-%m-%d' }}</small>
