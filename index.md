@@ -50,7 +50,7 @@ Further info on methodological details and limitations can be found below.
 
 <details>
   <summary><strong>Limitations</strong></summary>
-  <p>There are limits worth keeping in mind. Spatial units are fixed at 2021, while the accessibility layer is from 2023, so any subsequent changes are not captured. Centroid assignments — both when (i) attaching grid cells to municipalities and when (ii) identifying municipality–FUA membership —can produce minor edge effects on borders and small islands (though they seem to behave well at national scale). The travel-time indicators are model-based and reflect the network and assumptions at the time of release - one needs to consider, then, that local realities may differ. Finally, the services classification is intentionally country-relative, so that the resulting bands are comparable across countries with different baseline access.</p>
+  <p>There are limits worth keeping in mind. Spatial units are fixed at 2021, while the accessibility layer is from 2023, so any subsequent changes are not captured. Centroid assignments — both when (i) attaching grid cells to municipalities and when (ii) identifying municipality–FUA membership — can produce minor edge effects on borders and small islands (though they seem to behave well at national scale). The travel-time indicators are model-based and reflect the network and assumptions at the time of release - one needs to consider, then, that local realities may differ. Finally, the services classification is intentionally country-relative, so that the resulting bands are comparable across countries with different baseline access.</p>
 </details>
 
 ## Sources
