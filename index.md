@@ -37,20 +37,17 @@ Spain
 
 ## Methodological Notes
 
-<details>
-<summary><strong>Datasets</strong></summary>
-<ul>
-  <li><strong>LAU boundaries (2021): LAU_RG_01M_2021_3035.gpkg (ETRS89-LAEA)</strong> <!-- Add source + URL --></li>
-  <li><strong>DEGURBA at LAU (2021)</strong> <!-- Add source + URL --></li>
-  <li><strong>EU Census 1-km grid (2021)</strong> <!-- Add source + URL --></li>
-  <li><strong>Accessibility to services (2023)</strong> <!-- Add source + URL --></li>
-  <li><strong>Functional Urban Areas (2021)</strong> <!-- Add source + URL --></li>
-</ul>
-</details>
-
-<details>
+<details open>
   <summary><strong>Data Collection</strong></summary>
-  <p>The spatial data on post offices were obtained from OpenStreetMap (OSM), an openly licensed, community-curated geographic database. Specifically, I used the Overpass API, which allows structured queries against OSM. For each of the countries under study — Greece, Italy, Portugal, and Spain — I retrieved all features tagged with <code>amenity=post_office</code> tag, which is the standard OSM classification for physical post office facilities and captures both stand-alone buildings and smaller service points. By relying on OSM rather than official operator registries, I ensured a harmonized, reproducible dataset across multiple countries, accessible without the administrative or licensing constraints of national postal operators.</p>
+  <p>All source material is public and harmonised: Eurostat/GISCO LAU 2021 boundaries, Eurostat DEGURBA at LAU (2021), the EU 1-km population grid from the 2021 census, GISCO’s 2023 accessibility-to-services indicators for hospitals and primary schools, and the EU-OECD 2021 FUA layer.</p>
+  <summary><strong>Datasets</strong></summary>
+  <ul>
+  <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/lau-2021.html"><strong>LAU boundaries (2021): LAU_RG_01M_2021_3035.gpkg (ETRS89-LAEA)</strong></a>!</li>
+  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/degree-urbanisation"><strong>DEGURBA at LAU (2021)</strong></a>!</li>
+  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/population-distribution/population-grids"><strong>EU Census 1-km grid (2021)</strong></li>
+  <li><a href="https://ec.europa.eu/eurostat/web/gisco/geodata/geographic-accessibility"><strong>Accessibility to services (2023)</strong></li>
+  <li><a href="https://gisco-services.ec.europa.eu/distribution/v1/urau-2021.html"><strong>Functional Urban Areas (2021)</strong></li>
+  </ul>
 </details>
 
 <details>
@@ -78,15 +75,10 @@ Data on <strong>population</strong> comes from the 2021 EU 1-km census grid (lay
 ## Sources
 
 <details open>
-<summary><strong>Basemap/tiles</strong></summary>
-<p>© OpenStreetMap contributors (see <a href="https://www.openstreetmap.org/copyright">copyright &amp; attribution</a>).</p>
+<summary><strong>Materials</strong></summary>
+<p>All source material is public and harmonised: Eurostat/GISCO LAU 2021 boundaries, Eurostat DEGURBA at LAU (2021), the EU 1-km population grid from the 2021 census, GISCO’s 2023 accessibility-to-services indicators for hospitals and primary schools, and the EU-OECD 2021 FUA layer.</p>
+<summary><strong>Software</strong></summary>
+<p>Python with <code>GeoPandas</code>, <code>Pyogrio</code>, <code>Shapely</code>, <code>Pandas</code>, <code>Folium</code> and <code>Matplotlib</code>.</p>
 </details>
-
-
-
-## How to cite
-
-> André Marinha ({{ 'now' | date: '%Y' }}). “Post office locations — &lt;country&gt; (interactive map).”  
-> <code>{{ site.url }}{{ site.baseurl }}/maps/&lt;country&gt;_postoffices_map.html</code> (accessed {{ 'now' | date: '%Y-%m-%d' }}).
 
 <small>Last updated: {{ 'now' | date: '%Y-%m-%d' }}</small>
