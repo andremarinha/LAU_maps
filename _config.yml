@@ -1,0 +1,8 @@
+title: Status of Local Administrative Units (LAUs) in Southern Europe
+description: Interactive maps of LAUs in Greece, Italy, Portugal, and Spain.
+url: "https://andremarinha.github.io"
+baseurl: "/LAU_Maps"
+
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-seo-tag
